@@ -10,3 +10,7 @@ projek ini bekerja dengan cara mengenerate CV yang dimasukkan diubah ke dalam be
 - npm install
 - php artisan seed migrate --seed
 - php artisan serve
+
+## STACK
+- Laravel 11
+- tailwind css
