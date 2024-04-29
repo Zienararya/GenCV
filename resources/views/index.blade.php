@@ -10,7 +10,7 @@
 <body>
     <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a class="text-xl text-white font-cherry">'GEN<span class="text-[#725A7A]">C</span><span class="text-[#1F3F5A]">V</span></a>
+    <a class="text-2xl text-white font-cherry">'GEN<span class="text-[#725A7A]">C</span><span class="text-[#1F3F5A]">V</span></a>
   </div>
   <div class="flex-none">
     <button class="btn btn-square btn-ghost">

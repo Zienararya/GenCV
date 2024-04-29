@@ -6,14 +6,37 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        fontFamily: {
-            titan: ["Titan one", "sans-serif"],
-            cherry: ["Cherry Bomb One", "system-ui"],
+        extend: {
+            fontFamily: {
+                castoro: ["Castoro", "sans-serif"],
+                cherry: ["Cherry Bomb One", "sans-serif"],
+            },
         },
-        extend: {},
     },
     plugins: [require("daisyui")],
     daisyui: {
-        themes: ["aqua"],
+        themes: [
+            {
+                mytheme: {
+                    primary: "#90CBFC",
+
+                    secondary: "#1F3F5A",
+
+                    accent: "#00ffff",
+
+                    neutral: "#FFFFFF",
+
+                    "base-100": "#598DB9",
+
+                    info: "#0000ff",
+
+                    success: "#00ff00",
+
+                    warning: "#00ff00",
+
+                    error: "#ff0000",
+                },
+            },
+        ],
     },
 };
