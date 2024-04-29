@@ -1,8 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ["./src/**/*.{html,js}"],
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+    ],
     theme: {
+        fontFamily: {
+            titan: ["Titan one", "sans-serif"],
+            cherry: ["Cherry Bomb One", "system-ui"],
+        },
         extend: {},
     },
-    plugins: [],
+    plugins: [require("daisyui")],
+    daisyui: {
+        themes: ["aqua"],
+    },
 };
