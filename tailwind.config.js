@@ -10,6 +10,8 @@ export default {
             fontFamily: {
                 castoro: ["Castoro", "sans-serif"],
                 cherry: ["Cherry Bomb One", "sans-serif"],
+                titan: ["Titan One", "sans-serif"],
+                ultra: ["Ultra", "sans-serif"],
             },
         },
     },
