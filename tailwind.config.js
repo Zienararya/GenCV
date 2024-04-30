@@ -20,7 +20,7 @@ export default {
         themes: [
             {
                 mytheme: {
-                    primary: "#90CBFC",
+                    primary: "#598DB9",
 
                     secondary: "#1F3F5A",
 
@@ -28,7 +28,7 @@ export default {
 
                     neutral: "#FFFFFF",
 
-                    "base-100": "#598DB9",
+                    "base-100": "#90CBFC",
 
                     info: "#0000ff",
 
