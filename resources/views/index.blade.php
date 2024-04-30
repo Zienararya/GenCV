@@ -15,14 +15,16 @@
     </div>
     {{-- NAVBAR HEREE --}}
     <div class="navbar">
-        <div class="flex-1">
-            <a class="text-[40px] text-white font-titan">'GEN<span class="text-[#725A7A]">C</span><span
+        <div class="flex-1 px-[49px]">
+            <a href="/" class="text-[40px] text-white font-titan">'GEN<span class="text-[#725A7A]">C</span><span
                     class="text-[#1F3F5A]">V</span></a>
         </div>
         <div class="flex-none">
-            <button class="btn btn-square btn-ghost">
-                <i class="fi fi-rr-menu-burger text-xl text-white"></i>
-            </button>
+            <ul class="menu menu-horizontal px-[78px] flex items-center justify-center">
+                <li><a href="login" class="text-white text-[30px] font-castoro">Log In</a></li>
+                <li><a href="register" class="text-[30px] font-castoro text-secondary btn bg-white rounded-2xl">Sign
+                        Up</a></li>
+            </ul>
         </div>
     </div>
     {{-- HERO HEREE --}}
@@ -44,7 +46,8 @@
                 </div>
                 <p class=" text-[35px] text-secondary font-castoro">immediately!</p>
                 <div class="flex items-center justify-center">
-                    <button class="btn btn-lg bg-white rounded-full flex items-center justify-center">
+                    <button onclick="location.href='dashboard'"
+                        class="btn btn-lg bg-white rounded-full flex items-center justify-center">
                         <p class="text-secondary font-ultra text-[49px]">START!</p>
                     </button>
                 </div>
