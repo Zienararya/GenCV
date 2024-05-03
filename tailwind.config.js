@@ -17,6 +17,7 @@ export default {
                 cherry: ["Cherry Bomb One", "sans-serif"],
                 titan: ["Titan One", "sans-serif"],
                 ultra: ["Ultra", "sans-serif"],
+                mada: ["Mada", "sans-serif"],
             },
         },
     },
@@ -26,23 +27,23 @@ export default {
         themes: [
             {
                 mytheme: {
-                    primary: "#598DB9",
+                    primary: "#598db9",
 
-                    secondary: "#1F3F5A",
+                    secondary: "#1f3f5a",
 
-                    accent: "#00ffff",
+                    accent: "#131720",
 
-                    neutral: "#FFFFFF",
+                    neutral: "#ffffff",
 
-                    "base-100": "#90CBFC",
+                    "base-100": "#90cbfc",
 
-                    info: "#0000ff",
+                    info: "#3b82f6",
 
-                    success: "#00ff00",
+                    success: "#22c55e",
 
-                    warning: "#00ff00",
+                    warning: "#eab308",
 
-                    error: "#ff0000",
+                    error: "#ef4444",
                 },
             },
         ],
