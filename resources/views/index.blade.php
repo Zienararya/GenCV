@@ -48,7 +48,7 @@
                 <div class="flex items-center justify-center">
                     <button onclick="location.href='dashboard'"
                         class="btn btn-lg bg-white rounded-full flex items-center justify-center">
-                        <p class="text-secondary font-ultra text-[49px]">START!</p>
+                        <p class="text-secondary font-ultra text-[47px]">START!</p>
                     </button>
                 </div>
             </div>
