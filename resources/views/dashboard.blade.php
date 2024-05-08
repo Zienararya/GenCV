@@ -5,7 +5,8 @@
         <div class="bg-[#EFF8FF] rounded-lg h-[814px] mt-4">
             <div class="bg-[#AAC7DF] rounded-t-lg w-full h-[61px] py-2 px-[24px] flex items-center justify-between">
                 <div>
-                    <button href="createcv" class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center">
+                    <button onclick="location.href='create'"
+                        class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center">
                         <i class="fi fi-rr-plus-small"></i>Create New CV
                     </button>
                 </div>
