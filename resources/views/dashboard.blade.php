@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="px-[116px] py-[48px]">
-        <p class=" text-[42px] font-bold font-mada">Curriculum Vitae.</p>
+        <h1 class=" text-[42px] font-bold font-mada">Curriculum Vitae.</h1>
         <p class=" text-[22px] font-medium font-mada">View and manage all your cv in one place.</p>
-        <div class="bg-[#EFF8FF] rounded-lg h-[814px] mt-4">
+        <div class="bg-[#EFF8FF] rounded-lg min-h-screen mt-4">
             <div class="bg-[#AAC7DF] rounded-t-lg w-full h-[61px] py-2 px-[24px] flex items-center justify-between">
                 <div>
                     <button onclick="location.href='create'"
