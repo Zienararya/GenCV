@@ -14,6 +14,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('sweetalert::alert')
 </head>
 
 <body class="font-sans antialiased">
@@ -37,6 +38,26 @@
         </x-drawer>
         <!-- Page Content -->
     </div>
+    <script>
+        //message with sweetalert
+        @if (session('success'))
+            Swal.fire({
+                icon: "success",
+                title: "BERHASIL",
+                text: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: "error",
+                title: "GAGAL!",
+                text: "{{ session('error') }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        @endif
+    </script>
 </body>
 
 </html>

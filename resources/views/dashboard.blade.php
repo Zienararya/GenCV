@@ -20,6 +20,43 @@
                     </label>
                 </div>
             </div>
+            <div>
+                @forelse ($cvs as $cv)
+                    <div class=" px-[52px] py-[91px]">
+                        <div class="grid grid-cols-3 gap-[21px]">
+                            <div class="card max-w-[366px] bg-white shadow-xl">
+                                <figure">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                                        alt="Shoes" class="rounded-xl" />
+                                    </figure>
+                                    <div class="flex justify-between items-center p-3">
+                                        <div>
+                                            <h2 class="card-title">Name</h2>
+                                            <p>Date</p>
+                                        </div>
+                                        <div class="card-actions">
+                                            <i class="fi fi-rr-eye"></i>
+                                            <i class="fi fi-rr-trash"></i>
+                                            <i class="fi fi-rr-pencil"></i>
+                                            <i class="fi fi-rr-download"></i>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="flex flex-col items-center justify-center py-[175px]">
+                        <img src="img/isi db3.png" alt="kosong">
+                        <div class="mt-[58px] flex flex-col text-center">
+                            <h1 class=" font-mada text-[32px] font-semibold">No CV Starred</h1>
+                            <p class=" font-mada text-[22px] font-medium">It seems you haven’t added any CV to your
+                                starred
+                                list yet. Add one now!</p>
+                        </div>
+                    </div>
+                @endforelse
+            </div>
+            {{ $cvs->links() }}
         </div>
     </div>
 </x-app-layout>

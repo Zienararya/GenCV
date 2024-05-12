@@ -10,6 +10,7 @@ class CurriculumVitae extends Model
     use HasFactory;
     protected $fillable = [
         'job_title',
+        'photo',
         'first_name',
         'last_name',
         'email',

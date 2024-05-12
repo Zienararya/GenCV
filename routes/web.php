@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CurriculumVitaeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,6 +15,10 @@ Route::get('/dashboard', function () {
 Route::get('/create', function () {
     return view('createcv');
 })->middleware(['auth', 'verified'])->name('create cv');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('/dashboard', CurriculumVitaeController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
