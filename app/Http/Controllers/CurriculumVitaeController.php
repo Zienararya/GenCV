@@ -13,12 +13,12 @@ class CurriculumVitaeController extends Controller
     {
         $cvs = CurriculumVitae::latest()->paginate(10);
 
-        return view('dashboard', compact('cvs'));
+        return view('dashboard.index', compact('cvs'));
     }
 
     public function create() : View
     {
-        return view('createcv');
+        return view('dashboard.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -29,7 +29,7 @@ class CurriculumVitaeController extends Controller
         'photo' => 'nullable|image|max:2048',
         'first_name' => 'required|string|max:255',
         'last_name' => 'required|string|max:255',
-        'email' => 'required|email|unique:curriculum_vitae,email',
+        'email' => 'required|email',
         'phone' => 'required|string|max:12',
         'country' => 'required|string|max:255',
         'address' => 'required|string|max:255',
@@ -65,6 +65,6 @@ class CurriculumVitaeController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('dashboard')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('dashboard.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 }

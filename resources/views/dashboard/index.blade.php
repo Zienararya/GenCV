@@ -5,10 +5,10 @@
         <div class="bg-[#EFF8FF] rounded-lg min-h-screen mt-4">
             <div class="bg-[#AAC7DF] rounded-t-lg w-full h-[61px] py-2 px-[24px] flex items-center justify-between">
                 <div>
-                    <button onclick="location.href='create'"
+                    <a href="{{ route('dashboard.create') }}"
                         class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center">
                         <i class="fi fi-rr-plus-small"></i>Create New CV
-                    </button>
+                    </a>
                 </div>
                 <div class="flex items-center gap-2">
                     <button class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center">

@@ -8,13 +8,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/create', function () {
-    return view('createcv');
-})->middleware(['auth', 'verified'])->name('create cv');
+// Route::get('/create', function () {
+//     return view('createcv');
+// })->middleware(['auth', 'verified'])->name('create cv');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard', CurriculumVitaeController::class);
