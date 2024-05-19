@@ -126,7 +126,7 @@
                                 <div class="label">
                                     <span class="label-text">Date of Birth</span>
                                 </div>
-                                <input type="text" name="date_birth" placeholder="MM / DD / YYYY"
+                                <input type="text" name="date_birth" placeholder="DD/MM/YYYY"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('date_birth')
                                     <div class="label">

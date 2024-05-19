@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('country');
             $table->string('address');
-            $table->date('date_birth');
+            $table->string('date_birth');
             $table->string('place_birth');
             $table->string('skill');
             $table->string('language');
