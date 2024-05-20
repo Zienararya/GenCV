@@ -64,8 +64,10 @@
                     @endforelse
                 </div>
             </div>
-            {{ $cvs->links() }}
         </div>
+    </div>
+    <div class=" mt-5">
+        {{ $cvs->links() }}
     </div>
 </x-app-layout>
 

@@ -15,8 +15,9 @@
                         <a href="{{ route('dashboard.index') }}"
                             class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center px-[52px]">Back</a>
                     </div>
-                    <form action="{{ route('dashboard.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.update', $cv->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div>
                             <button type="submit"
                                 class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center px-[52px]">Next</button>
@@ -31,6 +32,7 @@
                                     <span class="label-text">Job Title</span>
                                 </div>
                                 <input type="text" placeholder="Ex: Network Engineer" name="job_title"
+                                    value="{{ old('job_title', $cv->job_title) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('job_title')
                                     <div class="label">
@@ -54,7 +56,8 @@
                                 <div class="label">
                                     <span class="label-text">First Name</span>
                                 </div>
-                                <input type="text" name="first_name" placeholder="Ex: Ihsanta"
+                                <input type="text" name="first_name" value="{{ old('first_name', $cv->first_name) }}"
+                                    placeholder="Ex: Ihsanta"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('first_name')
                                     <div class="label">
@@ -67,6 +70,7 @@
                                     <span class="label-text">Last Name</span>
                                 </div>
                                 <input type="text" name="last_name" placeholder="Ex: Zaki"
+                                    value="{{ old('last_name', $cv->last_name) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('last_name')
                                     <div class="label">
@@ -79,6 +83,7 @@
                                     <span class="label-text">Email</span>
                                 </div>
                                 <input type="text" name="email" placeholder="Ex: gencv@gmail.com"
+                                    value="{{ old('email', $cv->email) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('email')
                                     <div class="label">
@@ -91,6 +96,7 @@
                                     <span class="label-text">Phone</span>
                                 </div>
                                 <input type="text" name="phone" placeholder="Ex: 082312345678"
+                                    value="{{ old('phone', $cv->phone) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('phone')
                                     <div class="label">
@@ -103,6 +109,7 @@
                                     <span class="label-text">Country</span>
                                 </div>
                                 <input type="text" name="country" placeholder="Ex: Indonesia"
+                                    value="{{ old('country', $cv->country) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('country')
                                     <div class="label">
@@ -115,6 +122,7 @@
                                     <span class="label-text">Address</span>
                                 </div>
                                 <input type="text" name="address" placeholder="Ex: Jl. Mawar"
+                                    value="{{ old('address', $cv->address) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('address')
                                     <div class="label">
@@ -127,6 +135,7 @@
                                     <span class="label-text">Date of Birth</span>
                                 </div>
                                 <input type="text" name="date_birth" placeholder="DD/MM/YYYY"
+                                    value="{{ old('date_birth', $cv->date_birth) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('date_birth')
                                     <div class="label">
@@ -139,6 +148,7 @@
                                     <span class="label-text">Place of Birth</span>
                                 </div>
                                 <input type="text" name="place_birth" placeholder="Ex: Surabaya"
+                                    value="{{ old('place_birth', $cv->place_birth) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('place_birth')
                                     <div class="label">
@@ -151,6 +161,7 @@
                                     <span class="label-text">Skills</span>
                                 </div>
                                 <input type="text" name="skill" placeholder="Ex: Project management"
+                                    value="{{ old('skill', $cv->skill) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('skill')
                                     <div class="label">
@@ -163,6 +174,7 @@
                                     <span class="label-text">Language</span>
                                 </div>
                                 <input type="text" name="language" placeholder="Ex: Bahasa Indonesia"
+                                    value="{{ old('language', $cv->language) }}"
                                     class="input input-bordered w-full max-w-xs bg-[#E8EFF4]" />
                                 @error('language')
                                     <div class="label">
@@ -175,7 +187,7 @@
                     <div>
                         <h1 class="font-mada font-bold text-[32px]">Summary</h1>
                         <textarea name="summary" class="textarea textarea-bordered mt-5 bg-[#E8EFF4]"
-                            placeholder="High school student majoring in Network Engineering..."></textarea>
+                            placeholder="High school student majoring in Network Engineering...">{{ old('summary', $cv->summary) }}</textarea>
                         @error('summary')
                             <div class="label">
                                 <span class="label-text-alt">{{ $message }}</span>

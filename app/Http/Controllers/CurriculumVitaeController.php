@@ -12,7 +12,7 @@ class CurriculumVitaeController extends Controller
 {
     // Indexing CV
     public function index() : View{
-        $cvs = CurriculumVitae::latest()->paginate(10);
+        $cvs = CurriculumVitae::latest()->paginate(9);
 
         return view('dashboard.index', compact('cvs'));
     }
