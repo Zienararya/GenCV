@@ -16,6 +16,10 @@ Route::get('/', function () {
 //     return view('createcv');
 // })->middleware(['auth', 'verified'])->name('create cv');
 
+// Route::get('/download', function () {
+//     return view('download');
+// })->middleware(['auth', 'verified'])->name('download');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard', CurriculumVitaeController::class);
 });

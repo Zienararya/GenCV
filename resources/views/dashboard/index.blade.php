@@ -25,7 +25,7 @@
                     <div class="grid grid-cols-3 gap-8">
                         @forelse ($cvs as $cv)
                             <div class="card max-w-[366px] bg-white shadow-xl">
-                                <figure">
+                                <figure>
                                     <img src="https://images.unsplash.com/photo-1698047681432-006d2449c631?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                         alt="Shoes" class="rounded-xl" />
                                     </figure>
