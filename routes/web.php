@@ -18,6 +18,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard', CurriculumVitaeController::class);
+    Route::get('/dashboard/{id}/pdf', [CurriculumVitaeController::class, 'generatePdf'])->name('generate.pdf');
+    Route::get('/generate-image/{id}', [CurriculumVitaeController::class, 'generateImage'])->name('cv.image');
+
 });
 
 Route::middleware('auth')->group(function () {

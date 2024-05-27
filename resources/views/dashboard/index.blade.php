@@ -14,10 +14,14 @@
                     <button class="btn btn-sm rounded-full bg-[#ECEFF3] flex items-center">
                         <i class="fi fi-rr-filter"></i>Filter
                     </button>
-                    <label class="input input-sm rounded-full bg-[#ECEFF3] flex items-center gap-[5px]">
-                        <i class="fi fi-rr-search"></i>
-                        <input type="text" class="grow border-none" placeholder="Search" />
-                    </label>
+                    <form method="GET" action="{{ route('dashboard.index') }}" class="flex items-center gap-2">
+                        <label class="input input-sm rounded-full bg-[#ECEFF3] flex items-center gap-[5px]">
+                            <i class="fi fi-rr-search"></i>
+                            <input type="text" class="grow border-none" placeholder="Search"
+                                value="{{ request('search') }}" />
+                        </label>
+                        <button type="submit" class="btn btn-sm rounded-full bg-[#ECEFF3]">Search</button>
+                    </form>
                 </div>
             </div>
             <div>
@@ -26,8 +30,7 @@
                         @forelse ($cvs as $cv)
                             <div class="card max-w-[366px] bg-white shadow-xl">
                                 <figure">
-                                    <img src="https://images.unsplash.com/photo-1698047681432-006d2449c631?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt="Shoes" class="rounded-xl" />
+                                    <img src="{{ asset('storage/' . $cv->photo) }}" alt="Shoes" class="rounded-xl" />
                                     </figure>
                                     <div class="flex justify-between items-center p-3">
                                         <div>
@@ -46,7 +49,8 @@
                                             </form>
                                             <a href="{{ route('dashboard.edit', $cv->id) }}"><i
                                                     class="fi fi-rr-pencil"></i></a>
-                                            <i class="fi fi-rr-download"></i>
+                                            <a href="{{ route('generate.pdf', $cv->id) }}"><i
+                                                    class="fi fi-rr-download"></i><a>
                                         </div>
                                     </div>
                             </div>

@@ -7,9 +7,12 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\Snappy\Facades\SnappyImage;
 
 class CurriculumVitaeController extends Controller
 {
+    
     // Indexing CV
     public function index() : View{
         $cvs = CurriculumVitae::latest()->paginate(9);
@@ -44,12 +47,11 @@ class CurriculumVitaeController extends Controller
 
         //upload image
         $photo = $request->file('photo');
-        $photo->storeAs('storage/app/public', $photo->hashName());
+        $photo->storeAs('public', $photo->hashName());
 
         //create product
         CurriculumVitae::create([
         'photo'             => $photo->hashName(),
-        'title'             => $request->title,
         'job_title'         => $request->job_title,
         'first_name'        => $request->first_name,
         'last_name'         => $request->last_name,
@@ -91,7 +93,7 @@ class CurriculumVitaeController extends Controller
     public function update(Request $request, $id): RedirectResponse{
         //validate form
         $request->validate([
-            'job_title' => 'required|string|max:255',
+        'job_title' => 'required|string|max:255',
         'photo' => 'required|image|max:2048',
         'first_name' => 'required|string|max:255',
         'last_name' => 'required|string|max:255',
@@ -115,15 +117,14 @@ class CurriculumVitaeController extends Controller
 
             //upload new image
             $photo = $request->file('photo');
-            $photo->storeAs('storage/app/public', $photo->hashName());
+            $photo->storeAs('public', $photo->hashName());
 
             //delete old image
-            Storage::delete('storage/app/public/'.$cv->photo);
+            Storage::delete('public/'.$cv->photo);
 
             //update product with new image
             $cv->update([
             'photo'             => $photo->hashName(),
-            'title'             => $request->title,
             'job_title'         => $request->job_title,
             'first_name'        => $request->first_name,
             'last_name'         => $request->last_name,
@@ -170,12 +171,48 @@ class CurriculumVitaeController extends Controller
         $cv = CurriculumVitae::findOrFail($id);
 
         //delete image
-        Storage::delete('storage/app/public/'. $cv->photo);
+        Storage::delete('public/'. $cv->photo);
 
         //delete product
         $cv->delete();
 
         //redirect to index
         return redirect()->route('dashboard.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+    // Generate PDF
+    public function generatePdf($id){
+        $cv = CurriculumVitae::findOrFail($id);
+        $pdf = Pdf::loadView('dashboard.show', compact('cv')); // Memuat view dengan data
+        return $pdf->download('cv_'.$cv->first_name.'pdf'); // Mengunduh PDF
+    }
+
+    // Generate Snap PDF
+    public function generateImage($id){
+    $cv = CurriculumVitae::findOrFail($id);
+
+    // Render view and capture output
+    $html = view('dashboard.show', compact('cv'))->render();
+
+    // Generate image from HTML
+    $image = SnappyImage::loadHTML($html)
+        ->setOption('width', 1024) // optional: set width
+        ->setOption('disable-smart-width', true)
+        ->setOption('format', 'png') // or 'jpg'
+        ->output();
+
+    // Logging
+    error_log(print_r($image, true));
+     // Define the file name and path
+    $fileName = 'cv_' . $cv->id . '.png';
+    $filePath = 'public/' . $fileName;
+    
+    // Save the image to the public storage
+        Storage::put($filePath, $image);
+
+    // Get the URL to the stored file
+    $fileUrl = Storage::url($fileName);
+
+    // Return the response with the URL or any other response as needed
+    return response()->json(['url' => $fileUrl]);
     }
 }
