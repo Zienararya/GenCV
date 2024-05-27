@@ -183,10 +183,10 @@
                         @enderror
                     </div>
                     <div class="col-span-2">
-                        <h1 class="font-mada font-bold text-[32px]">Edit</h1>
+                        <h1 class="font-mada font-bold text-[32px]">Education</h1>
                         <div class="grid grid-cols-2 gap-5">
                             <div>
-                                <p>Loerm Ipsum</p>
+                                <p>Lorem Ipsum</p>
                             </div>
                             <div>
                                 <label class="form-control w-full max-w-xs">
